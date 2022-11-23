@@ -1,0 +1,404 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Compras.gov.br</title>
+<meta http-equiv="expires" content="0">
+<link rel="stylesheet" href="Compras.gov.br_files/style1.css" type="text/css">
+<script type="text/javascript" src="Compras.gov.br_files/ValidacoesBasicas.js"></script>
+<script type="text/javascript" src="Compras.gov.br_files/aguarde.js"></script>
+<script>
+
+    function Voltar() {
+        if (aguarde()) {
+            bloqueiaAcoes(document);
+            window.location.href = "";
+        }
+    }
+
+    function ValidaCodigo() {
+        //var url = '/includes/ValidaCodigoEdital.asp?numprp=232022&modprp=5&coduasg=160111&bidbird=N';
+		var url = '/ConsultaLicitacoes/Download/Download.asp?coduasg=160111&numprp=232022&modprp=5&bidbird=N';
+		var MyWindow = window.open(url, 'ValidaCodigo', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=655,height=300');
+        MyWindow.focus();
+    }
+
+    function IrParaItem(qtdePaginas, tipo) {
+        if (aguarde()) {
+            var vMaiorPagina = parseInt(qtdePaginas);
+
+            if (document.frmPaginacao.txbIrPara.value != "") {
+                var pagina = document.frmPaginacao.txbIrPara.value;
+
+                if (!parseInt(pagina)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+
+                if ((parseInt(pagina) > vMaiorPagina) || parseInt(pagina == 0)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+                bloqueiaAcoes(document);
+                document.frmPaginacao.pagina.value = document.frmPaginacao.txbIrPara.value;
+                document.frmPaginacao.submit();
+                //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+            }
+        }
+    }
+
+    function PaginarItens(strTipo, paginaAtual, tipo) {
+        if (aguarde()) {
+
+            bloqueiaAcoes(document);
+
+            var pagina = 0;
+
+            if (strTipo == "Proxima")
+                pagina = paginaAtual + 1;
+            else
+                pagina = paginaAtual - 1;
+
+            document.frmPaginacao.pagina.value = pagina;
+            document.frmPaginacao.submit();
+
+            //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+        }
+    }
+
+    function VisualizarItens(tipo) {
+        //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo;	
+
+        document.frmVisualizarItens.tipo.value = tipo;
+        document.frmVisualizarItens.submit();
+    }
+
+	function visualizarHistoricoEventos(parametros){
+		var url = "/ConsultaLicitacoes/ConsLicitacao_HistoricoEventos.asp" + parametros
+		window.open(url, 'HistoricoEventos', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=500,height=350');
+		return false;
+	}
+		
+</script>
+
+</head>
+
+<body topmargin="0" text="#000000" marginwidth="0" marginheight="0" leftmargin="0" bgcolor="#FFFFFF">
+
+<!-- frame e tabela que apresentarão a mensagem de aguarde na tela -->
+<iframe id="frameloading" name="frameloading" src="javascript:false;" scrolling="no" style="display: none; position: absolute; left: 0; top: 0; z-index: -1;" frameborder="0"></iframe>
+<table style="display:none; position: absolute;" id="loading" name="loading" class="box">
+	<tbody><tr><td class="cabecbox">Aguarde!</td></tr>
+</tbody></table>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tbody><tr>
+    <td colspan="2"><img src="Compras.gov.br_files/x2_dot.gif" width="5" height="5"></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" cellspacing="1" cellpadding="2" border="0">
+        <tbody><tr>
+          <td width="5"><img src="Compras.gov.br_files/x2_dot.gif" width="5" height="5"></td>
+          <td>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+              <tbody><tr>
+                <td colspan="2"><img src="Compras.gov.br_files/T_download_editais.gif" width="160" height="23" align="absbottom">
+                </td>
+              </tr>
+              <tr>
+                <td width="5"><img src="Compras.gov.br_files/risco.gif" width="5" height="3"></td>
+                <td width="100%"><img src="Compras.gov.br_files/risco2.gif" width="100%" height="3"></td>
+              </tr>
+            </tbody></table>
+          </td>
+          <td width="5"><img src="Compras.gov.br_files/x2_dot.gif" width="5" height="5"></td>
+        </tr>
+      </tbody></table>
+      <table cellspacing="1" cellpadding="2" border="0">
+        <tbody><tr>
+		<td width="23" valign="top" align="right"><img src="Compras.gov.br_files/tm_bullet.gif" width="6" height="14"></td><td class="tex3"><table width="700" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="tex3"><p>MINISTÉRIO DA DEFESA</p></td></tr><tr><td class="tex3"><p>Comando do Exército</p></td></tr><tr><td class="tex3"><p>Comando Militar do Leste</p></td></tr><tr><td class="tex3"><p>4ª Região Militar/4ª Divisão de Exército</p></td></tr><tr><td class="tex3"><p>4ªBrigada de Infantaria Motorizada</p></td></tr><tr><td class="tex3"><p>Código da UASG: 160111</p></td></tr></tbody></table><br></td>
+        </tr>
+        <tr>
+		<td width="23" valign="top" align="right"><img src="Compras.gov.br_files/tm_bullet.gif" width="6" height="14"></td><td class="tex3"><table width="700" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="tex3"><p><span class="tex3b">Pregão Eletrônico Nº  23/2022</span><span class="mensagem"> - (Decreto Nº 10.024/2019)</span><br><b>Objeto:</b>&nbsp;Objeto:
+ Pregão Eletrônico -  Aquisição de material de limpeza e higienização, 
+de proteção/segurança, destinado a atender às necessidades do Comando da
+ 4ª Brigada de Infantaria Leve de Montanha, Organizações Militares 
+vinculadas e participantes.                                             
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                  <br><b>Edital a partir de:</b>&nbsp;17/11/2022 das 08:00 às 11:50 Hs e das 13:30 às 16:00 Hs<br><b>Endereço:</b>&nbsp;Rua
+ Mariano Procopio, Nr. 970,                                             
+          - Bairro Mariano Procopio                  - Juiz de Fora     
+                        (MG)<br><b>Telefone:</b>&nbsp;(0xx32) 36904881<br><b>Fax:</b>&nbsp;(0xx32)               <br><b>Entrega da Proposta:</b>&nbsp;17/11/2022 às 08:00Hs<br></p></td></tr></tbody></table><br></td>
+        </tr>
+        
+		    <tr>
+		    <td width="23" valign="top" align="right"><img src="Compras.gov.br_files/tm_bullet.gif" width="6" height="14"></td>
+		    <td class="tex3">
+		    <span class="tex3b">Itens de Material</span><table width="100%"><tbody><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">101 - CAVALETE SINALIZAÇÃO</span><br><span class="tex3">CAVALETE
+ SINALIZAÇÃO, MATERIAL POLIPROPILENO, LARGURA 0,23 M, ALTURA 60 CM,   
+COR LARANJA, CARACTERÍSTICAS ADICIONAIS DOBRÁVEL, CONFORME MODELO DO 
+ÓRGÃO,   APLICAÇÃO ADVERTÊNCIA PISO ESCORREGADIO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 155<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">102 - CAVALETE SINALIZAÇÃO</span><br><span class="tex3">CAVALETE
+ SINALIZAÇÃO, MATERIAL POLIPROPILENO, LARGURA 0,23 M, ALTURA 60 CM,   
+COR LARANJA, CARACTERÍSTICAS ADICIONAIS DOBRÁVEL, CONFORME MODELO DO 
+ÓRGÃO,   APLICAÇÃO ADVERTÊNCIA PISO ESCORREGADIO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 165<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">103 - DISPENSER PARA COPO PLÁSTICO</span><br><span class="tex3">DISPENSER
+ PARA COPO PLÁSTICO, MATERIAL PLÁSTICO, COR BRANCA, CAPACIDADE COPO  
+180/200 ML, CAPACIDADE 100 UN, CARACTERÍSTICAS ADICIONAIS SISTEMA POUPA 
+COPO/ ALAVANCA ACIONAMENTO, MATERIAL BASE PLÁSTICO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 179<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">104 - DISPENSER PARA COPO PLÁSTICO</span><br><span class="tex3">DISPENSER
+ PARA COPO PLÁSTICO, MATERIAL PLÁSTICO, COR BRANCA, CAPACIDADE COPO  
+50/80 ML, CAPACIDADE 100 UN, CARACTERÍSTICAS ADICIONAIS SISTEMA POUPA 
+COPO/   ALAVANCA ACIONAMENTO, MATERIAL BASE PLÁSTICO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 127<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">105 - DISPENSER PARA COPO PLÁSTICO</span><br><span class="tex3">DISPENSER PARA COPO PLÁSTICO, MATERIAL AÇO INOXIDÁVEL, CAPACIDADE COPO 200 ML,CAPACIDADE 100 UN, MATERIAL BASE AÇO INOXIDÁVEL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 197<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">106 - DISPENSER PARA COPO PLÁSTICO</span><br><span class="tex3">DISPENSER
+ PARA COPO PLÁSTICO, MATERIAL AÇO INOXIDÁVEL, MATERIAL EXTREMIDADE   
+INOX, CAPACIDADE COPO 50 ML, DIÂMETRO 55 MM, COMPRIMENTO 490 MM, 
+CAPACIDADE   100 UN, CARACTERÍSTICAS ADICIONAIS COM PARAFUSOS PARA 
+FIXAÇÃO, SISTEMA DE     REPOSIÇÃO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 135<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">107 - MÁSCARA PROTEÇÃO RESP. C/ ANVISA</span><br><span class="tex3">MÁSCARA
+ PROTEÇÃO RESP. C/ ANVISA, MODELO RESPIRADOR DOBRÁVEL, TIPO BICO DE    
+PATO, MATERIAL CAMADAS FIBRAS SINTÉTICAS, FILTRO EFICIÊNCIA FILTRAÇÃO 
+MÍN. 94%S, CLASSE PFF2, N95 OU EQUIVALENTE, ADICIONAL CARVÃO ATIVADO, 
+COMPONENTE CLIPENASAL, TIPO FIXAÇÃO TIRAS VEDAÇÃO ANATÔMICA, ADICIONAL 2
+ C/ VÁLVULA, COR C/   COR, TAMANHO ADULTO, ESTERILIDADE DESCARTÁVEL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 620<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">108 - AVENTAL</span><br><span class="tex3">AVENTAL, MATERIAL PVC- CLORETO DE POLIVINILA, TAMANHO M, MODELO UNISSEX, TIPO IMPERMEÁVEL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 730<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">109 - BOTA SEGURANÇA</span><br><span class="tex3">BOTA
+ SEGURANÇA, MATERIAL PVC- CLORETO DE POLIVINILA, MATERIAL SOLA BORRACHA 
+  ANTIDERRAPANTE, COR BRANCA, TAMANHO 45, TIPO CANO CURTO, TIPO USO 
+INDÚSTRIA   ALIMENTÍCIA, CARACTERÍSTICAS ADICIONAIS FORRADA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 538<br>Unidade de fornecimento: Par                 </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">110 - LIMPADOR BASE ÁCIDA</span><br><span class="tex3">LIMPADOR
+ BASE ÁCIDA, COMPOSIÇÃO BÁSICA ÁCIDO SULFÔNICO, FLUORÍDRICO E         
+MURIÁTICO, ASPECTO FÍSICO LÍQUIDO, COR INCOLOR, APLICAÇÃO LIMPEZA DE 
+PISOS,   CARACTERÍSTICAS ADICIONAIS BIODEGRADÁVEL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 646<br>Unidade de fornecimento: Frasco 1,00 L       </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">111 - CERA</span><br><span class="tex3">CERA,
+ TIPO PASTOSA, COR INCOLOR LEITOSO, COMPOSIÇÃO CERA CARNAÚBA E POLI-    
+ TETRAFLUOR-ETILENO (TEFLON), CARACTERÍSTICAS ADICIONAIS DILUÍVEL, 
+PULVERIZAR  VEÍCULO LAVADO, APLICAÇÃO AUTOMÓVEL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 413<br>Unidade de fornecimento: Embalagem 200,00 G  </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">112 - DISPENSER HIGIENIZADOR</span><br><span class="tex3">DISPENSER
+ HIGIENIZADOR, MATERIAL PLÁSTICO ABS, CAPACIDADE 800 ML, TIPO 
+FIXAÇÃOPAREDE, COR BRANCA, APLICAÇÃO MÃOS, CARACTERÍSTICAS ADICIONAIS 
+VISOR FRONTAL  PARA ÁLCOOL GEL OU SABONETE LÍQUIDO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 467<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">113 - ÁLCOOL ISOPROPÍLICO</span><br><span class="tex3">ÁLCOOL
+ ISOPROPÍLICO, CONCENTRAÇÃO 70% V/V, APRESENTAÇÃO LOÇÃO ALCOÓLICA EM    
+ESPUMA, CARACTERÍSTICA ADICIONAL C/ EMOLIENTE E UMECTANTE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 404<br>Unidade de fornecimento: Embalagem 1,00 L    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">114 - ÁGUA SANITÁRIA</span><br><span class="tex3">ÁGUA
+ SANITÁRIA, COMPOSIÇÃO QUÍMICA HIPOCLORITO DE SÓDIO, HIDRÓXIDO DE SÓDIO,
+  CLORETO, COR INCOLOR, APLICAÇÃO LAVAGEM E ALVEJANTE DE ROUPAS, 
+BANHEIRAS,     PIAS,, TIPO COMUM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 6860<br>Unidade de fornecimento: Litro               </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">115 - SOLUÇÃO LIMPEZA MULTIUSO</span><br><span class="tex3">SOLUÇÃO
+ LIMPEZA MULTIUSO, COMPOSIÇÃO BÁSICA CLORETO DE ALQUIL DIMETIL BENZIL  
+AMÔNIO, ASPECTO FÍSICO LÍQUIDO, CARACTERÍSTICAS ADICIONAIS AROMA DE 
+EUCALÍPTO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1790<br>Unidade de fornecimento: Galão 5,00 L        </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">116 - SOLUÇÃO LIMPEZA MULTIUSO</span><br><span class="tex3">SOLUÇÃO
+ LIMPEZA MULTIUSO, COMPOSIÇÃO BÁSICA CLORETO DE ALQUIL DIMETIL BENZIL  
+AMÔNIO, ASPECTO FÍSICO LÍQUIDO, CARACTERÍSTICAS ADICIONAIS AROMA DE 
+EUCALÍPTO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 3560<br>Unidade de fornecimento: Litro               </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">117 - SOLUÇÃO LIMPEZA MULTIUSO</span><br><span class="tex3">SOLUÇÃO
+ LIMPEZA MULTIUSO, COMPOSIÇÃO BÁSICA CLORETO DE ALQUIL DIMETIL BENZIL  
+AMÔNIO, ASPECTO FÍSICO LÍQUIDO, CARACTERÍSTICAS ADICIONAIS AROMA DE 
+EUCALÍPTO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5450<br>Unidade de fornecimento: Frasco 500,00 ML    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">118 - DESENGRAXANTE</span><br><span class="tex3">DESENGRAXANTE,
+ ASPECTO FÍSICO LÍQUIDO AVERMELHADO, COMPOSIÇÃO HIDROCARBONETOS,ÁCIDOS 
+ORGÂNICOS, TENSOATIVOS,NE U, CARACTERÍSTICAS ADICIONAIS VALIDADE 18    
+MESES, NEUTRO, ANTIOXIDANTE,BIODEGRAD Á, APLICAÇÃO LIMPEZA PESADA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 392<br>Unidade de fornecimento: Frasco 5,00 L       </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">119 - DETERGENTE</span><br><span class="tex3">DETERGENTE,
+ COMPOSIÇÃO NONILFENOL ETOXILADO, ALCOOL GRAXO ETOXILADO, COC O,   
+APLICAÇÃO LAVAGEM DE ROUPAS E LIMPEZA EM GERAL, AROMA NATURAL, 
+CARACTERÍSTICASADICIONAIS CONCENTRADO, BIODEGRADÁVEL, ASPECTO FÍSICO 
+PASTA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 592<br>Unidade de fornecimento: Embalagem 5,00 L    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">120 - SABONETE LÍQUIDO</span><br><span class="tex3">SABONETE
+ LÍQUIDO, ASPECTO FÍSICO LÍQUIDO VISCOSO, ACIDEZ PH 6 A 8, APLICAÇÃO  
+ASSEPSIA DAS MÃOS, CARACTERÍSTICAS ADICIONAIS AGENTE BACTERICIDA, 
+COMPOSIÇÃO  TENSOATIVOS ANIÔNICOS E NÃO ANIÔNICOS, SOLVENTE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1550<br>Unidade de fornecimento: Frasco 500,00 ML    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">121 - VASSOURA</span><br><span class="tex3">VASSOURA,
+ MATERIAL CERDAS PIAÇAVA SINTÉTICA, MATERIAL CEPA POLIPROPILENO,     
+COMPRIMENTO CEPA 60 CM, CARACTERÍSTICAS ADICIONAIS CABO METAL 
+PLASTIFICADO/   ROSCADO, CERDAS 7 CM, LARGURA CEPA 25 CM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 700<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">122 - RODO</span><br><span class="tex3">RODO,
+ MATERIAL CABO ALUMÍNIO, MATERIAL SUPORTE ALUMÍNIO, COMPRIMENTO SUPORTE 
+ 50 CM, QUANTIDADE BORRACHAS 2 UN, CARACTERÍSTICAS ADICIONAIS CABO      
+       APROXIMADAMENTE 1,50 M, COM ROSCA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 790<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">123 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, CAPACIDADE 300 L, COR PRETA, APRESENTAÇÃO PEÇA ÚNICA<br>Tratamento Diferenciado: -<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1570<br>Unidade de fornecimento: Embalagem 100,00 UN </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">124 - DISPENSER PAPEL TOALHA</span><br><span class="tex3">DISPENSER
+ PAPEL TOALHA, MATERIAL PLÁSTICO, TIPO INTERFOLHA, COR BRANCA,       
+CARACTERÍSTICAS ADICIONAIS VISOR E CHAVE, DIMENSÕES 28,5 X 25,5 X 14 CM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 273<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">125 - SOLUÇÃO</span><br><span class="tex3">SOLUÇÃO,
+ COMPOSIÇÃO HIDRÓXIDO DE POTÁSSIO, ÁCIDO SILÍCICO, SAL SÓDICO ;,      
+APLICAÇÃO TRTATAMENTO DE ÁGUA, TIPO SOLUÇÃO DE SILICATO, REFERÊNCIA 
+BOILERMATE1200S, APRESENTAÇÃO LÍQUIDO LEVEMENTE AMARELADO OU CASTANHO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 222<br>Unidade de fornecimento: Embalagem 10,00 ML  </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">126 - SOLUÇÃO LIMPEZA MULTIUSO</span><br><span class="tex3">SOLUÇÃO LIMPEZA MULTIUSO, COMPOSIÇÃO BÁSICA HIPOCLORITO DE SÓDIO, ASPECTO     FÍSICO PÓ, CARACTERÍSTICAS ADICIONAIS SEM ENXÁGUE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 210<br>Unidade de fornecimento: Frasco 2.000,00 ML  </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">127 - CLARIFICANTE</span><br><span class="tex3">CLARIFICANTE, COMPOSIÇÃO SOLUÇÃO DE CLORIDRÓXIDO, ASPECTO FÍSICO LÍQUIDO,     APLICAÇÃO PISCINA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 504<br>Unidade de fornecimento: Frasco 1,00 L       </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">128 - ALGICIDA</span><br><span class="tex3">ALGICIDA, COMPOSIÇÃO QUATERNÁRIO DE AMÔNIA E ÁGUA, ASPECTO FÍSICO LÍQUIDO, USOTRATAMENTO ÁGUA DE PISCINA, TIPO MANUTENÇÃO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 254<br>Unidade de fornecimento: Frasco 1,00 L       </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">129 - LIMPA BORDA</span><br><span class="tex3">LIMPA
+ BORDA, COMPOSIÇÃO SURFACTANTES ANIÔNICOS E NÃO ANIÔNICOS 3% E QUART E, 
+ ASPECTO FÍSICO LÍQUIDO, APLICAÇÃO LIMPEZA BORDA DE PISCINAS<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 170<br>Unidade de fornecimento: Frasco 1,00 L       </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">130 - NEUTRALIZANTE QUÍMICO</span><br><span class="tex3">NEUTRALIZANTE QUÍMICO, COMPOSIÇÃO ÁCIDO CLORIDRICO, APLICAÇÃO REDUTOR DE PH,  CARACTERÍSTICAS ADICIONAIS SOLÚVEL EM ÁGUA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 122<br>Unidade de fornecimento: Frasco 1,00 L       </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">131 - REAGENTE ANALÍTICO 2</span><br><span class="tex3">REAGENTE
+ ANALÍTICO 2, TIPO USO CATALISADOR DE KJELDAHL, COMPOSIÇÃO À BASE DE  
+SULFATO DE COBRE E POTÁSSIO 5H20, APRESENTAÇÃO PASTILHA, CONCENTRAÇÃO 
+400 MG +3,5 G<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 490<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">132 - AREIA</span><br><span class="tex3">AREIA, TIPO NORMAL BRASILEIRA, GRANULOMETRIA MÉDIA FINA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 76<br>Unidade de fornecimento: Saco 25,00 KG       </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">133 - PENEIRA PARA CLASSIFICAÇÃO</span><br><span class="tex3">PENEIRA
+ PARA CLASSIFICAÇÃO, MATERIAL ALUMÍNIO, MATERIAL BORDA ALUMÍNIO,       
+FORMATO REDONDA, APLICAÇÃO VERIFICAÇÃO DE IMPUREZAS, CARACTERÍSTICAS    
+      ADICIONAIS CRIVO CIRCULAR 3MM E 5MM, ANÁLISES GRANULOMÉTRICA S<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 22<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">134 - ESCOVA LIMPEZA GERAL</span><br><span class="tex3">ESCOVA
+ LIMPEZA GERAL, MATERIAL CERDAS NÁILON, CARACTERÍSTICAS ADICIONAIS      
+MODELO CURVA ,CORPO EM ABS ESPESSURA MÉDIA, COMPRIMENTO 44 CM, APLICAÇÃO
+      LIMPEZA DE PISCINA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 4<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">135 - MANGUEIRA ASPIRAÇÃO</span><br><span class="tex3">MANGUEIRA
+ ASPIRAÇÃO, MATERIAL SILICONE, TIPO FLUTUANTE, USO LIMPEZA,          
+CARACTERÍSTICAS ADICIONAIS RESITÊCIA À BRASÃO E AOS RAIOS ULTRA 
+VIOLETAS,     DIÂMETRO NOMINAL 1 1/2 POL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 12<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">136 - EQUIPAMENTOS DIVERSOS PARA SERVIÇOS PROFISSIONAIS</span><br><span class="tex3">EQUIPAMENTOS
+ DIVERSOS PARA SERVIÇOS PROFISSIONAIS, TIPO KIT FLUTUADORES,      
+MATERIAL PLÁSTICO DE ENGENHARIA RESISTENTE A RAIOS ´UV´, USO AERADOR    
+      SUPERFICIAL AVF, CARACTERÍSTICAS ADICIONAIS 1 DIMENSÃO DAS BÓIAS: 
+120 X 40 X  20 CM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 24<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">137 - CABO TELESCÓPICO</span><br><span class="tex3">CABO
+ TELESCÓPICO, MATERIAL ALUMÍNIO, COMPRIMENTO 4 ATÉ 8 M, TIPO CABO       
+  REGULÁVEL, USO ESCOVA DE AÇO, RODO ASPIRADOR, PENEIRA, APLICAÇÃO 
+LIMPEZA DE   PISCINA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">138 - GLIFOSATO</span><br><span class="tex3">GLIFOSATO, CONCENTRAÇÃO 48% P/V, APRESENTAÇÃO CONCENTRADO SOLÚVEL, NÚMERO DE  REFERÊNCIA QUÍMICA 1071-83-6<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 412<br>Unidade de fornecimento: Litro               </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">139 - SOLUÇÃO LIMPEZA MULTIUSO</span><br><span class="tex3">SOLUÇÃO LIMPEZA MULTIUSO, COMPOSIÇÃO BÁSICA HIPOCLORITO DE SÓDIO, ASPECTO     FÍSICO PÓ, CARACTERÍSTICAS ADICIONAIS SEM ENXÁGUE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 240<br>Unidade de fornecimento: Frasco 2.000,00 ML  </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">140 - MEDIDOR ÍNDICE ACIDEZ</span><br><span class="tex3">MEDIDOR
+ ÍNDICE ACIDEZ, TIPO PHMETRO DE BOLSO, APLICAÇÃO MEDIÇÃO DE PH EM      
+SOLUÇÕES AQUOSAS E AMBIENTES CRÍ T, FAIXA MEDIÇÃO 0 A 14 PH, RESOLUÇÃO 
+0,01 PH, PRECISÃO +-0,5, TEMPERATURA OPERAÇÃO 00 A 60 ¨C<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 26<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">141 - CONJUNTO LIXEIRA COLETA SELETIVA</span><br><span class="tex3">CONJUNTO
+ LIXEIRA COLETA SELETIVA, MATERIAL POLIPROPILENO, QUANTIDADE LIXEIRAS 5 
+UN, CAPACIDADE 25 L, COR AZUL/AMARELA/VERMELHA/LARANJA/CINZA,           
+    CARACTERÍSTICAS ADICIONAIS IDENTIFICAÇÃO RESÍDUO CADA LIXEIRA/TAMPA 
+VAI-VEM,  APLICAÇÃO COLETA DE LIXO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 59<br>Unidade de fornecimento: Conjunto            </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">142 - CONJUNTO LIXEIRA COLETA SELETIVA</span><br><span class="tex3">CONJUNTO
+ LIXEIRA COLETA SELETIVA, MATERIAL POLIETILENO, QUANTIDADE LIXEIRAS 5 
+UN, CAPACIDADE 50 L, COR AZUL, VERMELHA, VERDE, AMARELA E CINZA,        
+      CARACTERÍSTICAS ADICIONAIS SUPORTE METÁLICO, ABERTURA FRONTAL, 
+APLICAÇÃO      SEPARAR MATERIAL RECICLÁVEL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 49<br>Unidade de fornecimento: Conjunto            </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">143 - CONJUNTO LIXEIRA COLETA SELETIVA</span><br><span class="tex3">CONJUNTO
+ LIXEIRA COLETA SELETIVA, MATERIAL POLIETILENO ALTA DENSIDADE,        
+QUANTIDADE LIXEIRAS 5 UN, CAPACIDADE 100 L, COR AMARELA, AZUL, VERMELHA,
+      VERDE, MARROM, CARACTERÍSTICAS ADICIONAIS TAMPA VAI E VEM, 
+MATERIAL ESTRUTURA AÇO GALVANIZADO, TRATAMENTO SUPERFICIAL U.V<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 70<br>Unidade de fornecimento: Conjunto            </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">144 - COLETOR LIXO</span><br><span class="tex3">COLETOR
+ LIXO, MATERIAL POLIETILENO ALTA DENSIDADE, CAPACIDADE 120 L, COR      
+AMARELA, TRATAMENTO SUPERFICIAL ANTI-RAIOS ULTRAVIOLETA, IMPRESSÃO 
+RECIPIENTE COM TEXTO E SÍMBOLO DE IDENTIFICAÇÃO, COMPONENTES TAMPA (SEM 
+ACIONAMENTO      PEDAL) VÁLVULA ESCOAMENTO, CARACTERÍSTICAS ADICIONAIS 
+RODAS DE BORRACHA MACIÇA, FORMATO RECIPIENTE CANTOS ARREDONDADOS, 
+APLICAÇÃO COLETA DE MATERIAIS       RECICLÁVEIS<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 67<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">145 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO
+ PLÁSTICO LIXO, CAPACIDADE 20 L, COR AZUL, APRESENTAÇÃO PEÇA ÚNICA,     
+  LARGURA 30 CM, ALTURA 50 CM, ESPESSURA 0,6 MM, APLICAÇÃO ACONDICIONAR 
+        MATERIAIS INSERVÍVEIS<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1412<br>Unidade de fornecimento: Embalagem 100,00 UN </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">146 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, CAPACIDADE 30 L, COR AZUL, APRESENTAÇÃO PEÇA ÚNICA,       LARGURA 59 CM, ALTURA 62 CM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1617<br>Unidade de fornecimento: Embalagem 100,00 UN </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">147 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO
+ PLÁSTICO LIXO, CAPACIDADE 50 L, COR AZUL, LARGURA 63 CM, ALTURA 80 CM, 
+  CARACTERÍSTICAS ADICIONAIS COM SOLDA CONTÍNUA, APLICAÇÃO COLETA 
+SELETIVA,     NORMAS TÉCNICAS CLASSE I, TIPO C, MATERIAL RESINA 
+TERMOPLÁSTICA RECICLADA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1605<br>Unidade de fornecimento: Embalagem 100,00 UN </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">148 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO
+ PLÁSTICO LIXO, CAPACIDADE 100 L, COR AZUL, LARGURA 75 CM, ALTURA 105 
+CM, CARACTERÍSTICAS ADICIONAIS COM SOLDA CONTÍNUA, APLICAÇÃO COLETA 
+SELETIVA,     NORMAS TÉCNICAS CLASSE I, TIPO E, MATERIAL RESINA 
+TERMOPLÁSTICA RECICLADA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1430<br>Unidade de fornecimento: Embalagem 100,00 UN </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">149 - LIXEIRA</span><br><span class="tex3">LIXEIRA, MATERIAL POLIPROPILENO, CAPACIDADE 60 L, TIPO COM TAMPA, COR LARANJA,CARACTERÍSTICAS ADICIONAIS TAMPA BASCULANTE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 86<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">150 - CESTO LIXO</span><br><span class="tex3">CESTO
+ LIXO, MATERIAL FIBERGLASS, CAPACIDADE 20 L, CARACTERÍSTICAS ADICIONAIS 
+ TAMPA COM CADEADO, 2 DIVISÕES INTERNA, COR LARANJA, FORMATO RETANGULAR,
+       IMPRESSAO PILHAS E BATERIAS<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 56<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">151 - COLETOR LIXO</span><br><span class="tex3">COLETOR
+ LIXO, MATERIAL POLIETILENO, COR LARANJA, IMPRESSÃO PILHAS E BATERIAS, 
+CARACTERÍSTICAS ADICIONAIS TAMPA COM ABERTURA CIRCULAR, SEM PEDAL, 
+APLICAÇÃO  COLETA DE PILHAS E BATERIAS, DIMENSÃO 24 X 50 CM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 49<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">152 - COLETOR LIXO</span><br><span class="tex3">COLETOR LIXO, MATERIAL POLIETILENO MÉDIA DENSIDADE, CAPACIDADE 50 L, COR      BRANCA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 75<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">153 - COLETOR LIXO</span><br><span class="tex3">COLETOR
+ LIXO, MATERIAL POLIPROPILENO, CAPACIDADE 50 L, COMPONENTES CESTO      
+INDIVIDUAL COM POSTE DE FIXAÇÃO, CARACTERÍSTICAS ADICIONAIS TAMPA DE 
+ABERTURA FRONTAL COM CHAVE, APLICAÇÃO COLETA SELETIVA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 66<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">154 - LIXEIRA</span><br><span class="tex3">LIXEIRA, MATERIAL AÇO INOXIDÁVEL, CAPACIDADE 12 L, TIPO TAMPA BASCULANTE,     CARACTERÍSTICAS ADICIONAIS CILÍNDRICA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 130<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">155 - ÁLCOOL ETÍLICO</span><br><span class="tex3">ÁLCOOL ETÍLICO, TIPO HIDRATADO, TEOR ALCOÓLICO 70% ( 70¨GL), APRESENTAÇÃO     GLICERINADO, LÍQUIDO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 4890<br>Unidade de fornecimento: Frasco 1.000,00 ML  </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">156 - ÁLCOOL ETÍLICO</span><br><span class="tex3">ÁLCOOL ETÍLICO, TIPO HIDRATADO, TEOR ALCOÓLICO 70%_(70¨GL), APRESENTAÇÃO GEL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 680<br>Unidade de fornecimento: Frasco 1.000,00 ML  </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">157 - TAPETE</span><br><span class="tex3">TAPETE,
+ MATERIAL SUPERFÍCIE VINIL, MATERIAL BASE PVC- CLORETO DE POLIVINILA,  
+TIPO BORRACHA ANTIDERRAPANTE, LARGURA 70 CM, COMPRIMENTO 100 CM, COR 
+BÁSICA   PRETA, CARACTERÍSTICAS ADICIONAIS SANITIZANTE, ESPESSURA 10 MM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 226<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">158 - ÁCIDO DICLOROISOCIANÚRICO (DCIA)</span><br><span class="tex3">ÁCIDO
+ DICLOROISOCIANÚRICO (DCIA), ASPECTO FÍSICO EM PASTILHA, BRANCA, ODOR DE
+ CLORO, FÓRMULA QUÍMICA C3CL2N3O3NA (SAL SÓDICO), PESO MOLECULAR 219,95 
+G/MOL, GRAU DE PUREZA TEOR MÍNIMO DE CLORO LIBERADO- 56%, NÚMERO DE 
+REFERÊNCIA       QUÍMICA CAS 2893-78-9<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 280<br>Unidade de fornecimento: Pastilha            </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">159 - ÁCIDO DICLOROISOCIANÚRICO (DCIA)</span><br><span class="tex3">ÁCIDO
+ DICLOROISOCIANÚRICO (DCIA), ASPECTO FÍSICO EM PASTILHA, BRANCA, ODOR DE
+ CLORO, FÓRMULA QUÍMICA C3CL2N3O3NA (SAL SÓDICO), PESO MOLECULAR 219,95 
+G/MOL, GRAU DE PUREZA TEOR MÍNIMO DE CLORO LIBERADO- 56%, NÚMERO DE 
+REFERÊNCIA       QUÍMICA CAS 2893-78-9<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 230<br>Unidade de fornecimento: Quilograma          </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">160 - PEÇAS / ACESSÓRIOS EQUIPAMENTOS ESPECIALIZADOS</span><br><span class="tex3">PEÇAS / ACESSÓRIOS EQUIPAMENTOS ESPECIALIZADOS, APLICAÇÃO 2 LIMPADORA PEÇAS,  TIPO 6 ESCOVA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 113<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">161 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, CAPACIDADE 15 L, NORMAS TÉCNICAS CLASSE I- NBR 9191<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1236<br>Unidade de fornecimento: Pacote 100,00 UN    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">162 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, MATERIAL POLIETILENO ALTA DENSIDADE, APLICAÇÃO COLETA DE  LIXO, CAPACIDADE 30 L<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1236<br>Unidade de fornecimento: Pacote 100,00 UN    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">163 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, CAPACIDADE 50 L, NORMAS TÉCNICAS CLASSE I- NBR 9191<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1216<br>Unidade de fornecimento: Pacote 100,00 UN    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">164 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, CAPACIDADE 100 L, COR VERMELHA, ESPESSURA 10 MICRA,       MATERIAL POLIETILENO ALTA DENSIDADE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1234<br>Unidade de fornecimento: Pacote 100,00 UN    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">165 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO
+ PLÁSTICO LIXO, CAPACIDADE 200 L, COR MARROM, APRESENTAÇÃO PEÇA ÚNICA,  
+  LARGURA 85 CM, ALTURA 25 CM, ESPESSURA 0,10, APLICAÇÃO COLETA DE LIXO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1192<br>Unidade de fornecimento: Pacote 100,00 UN    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">166 - ESPONJA LIMPEZA</span><br><span class="tex3">ESPONJA
+ LIMPEZA, MATERIAL FIBRAS DE NAYLON, FORMATO RETANGULAR, ABRASIVIDADE  
+ULTRA PESADA, APLICAÇÃO LIMPEZA GERAL, COMPRIMENTO MÍNIMO 260 MM, 
+LARGURA     MÍNIMA 100 MM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1606<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">167 - LUVA PARA PROCEDIMENTO NÃO CIRÚRGICO</span><br><span class="tex3">LUVA PARA PROCEDIMENTO NÃO CIRÚRGICO, MATERIAL PLÁSTICA, TAMANHO TAMANHO ÚNICO, TIPO USO DESCARTÁVEL, MODELO AMBIDESTRA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 296<br>Unidade de fornecimento: Caixa 100,00 UN     </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">168 - ÁLCOOL ETÍLICO LIMPEZA DE AMBIENTES</span><br><span class="tex3">ÁLCOOL ETÍLICO LIMPEZA DE AMBIENTES, TIPO ETÍLICO HIDRATADO, CARACTERÍSTICAS  ADICIONAIS GEL, CONCENTRAÇÃO 70%<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 350<br>Unidade de fornecimento: Frasco 1,00 KG      </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">169 - CONTAINER</span><br><span class="tex3">CONTAINER,
+ MATERIAL FIBRA DE VIDRO, CAPACIDADE 1000 L, APLICAÇÃO ARMAZENAGEM  DE 
+RESÍDUOS, CARACTERÍSTICAS ADICIONAIS 4 RODAS ARTICULADAS, COM TAMPA,    
+   INSCRIÇÃO NA COR, COR AZUL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">170 - PAPEL HIGIÊNICO</span><br><span class="tex3">PAPEL HIGIÊNICO, MATERIAL CELULOSE VIRGEM, LARGURA 10 CM, COR BRANCA,         CARACTERÍSTICAS ADICIONAIS PICOTADO, FOLHA DUPLA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 400<br>Unidade de fornecimento: Caixa 12,00 UN      </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">171 - PAPEL HIGIÊNICO</span><br><span class="tex3">PAPEL HIGIÊNICO, MATERIAL CELULOSE VIRGEM, LARGURA 10 CM, COR BRANCA,         CARACTERÍSTICAS ADICIONAIS PICOTADO, FOLHA DUPLA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 600<br>Unidade de fornecimento: Pacote 8,00 UN      </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">172 - PAPEL HIGIÊNICO</span><br><span class="tex3">PAPEL HIGIÊNICO, MATERIAL CELULOSE VIRGEM, COMPRIMENTO 300 M, LARGURA 10 CM,  QUANTIDADE FOLHAS SIMPLES, COR BRANCA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 100<br>Unidade de fornecimento: Fardo 8,00 UN       </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">173 - SABÃO PÓ</span><br><span class="tex3">SABÃO
+ PÓ, ASPECTO FÍSICO PÓ, COMPOSIÇÃO TENSOATIVO ANIÔNICO, TAMPONANTES E   
+ CORANTES, CARACTERÍSTICAS ADICIONAIS BRANQUEADOR ÓPTICO, ESSÊNCIA, 
+ALVEJANTE ECARGA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 300<br>Unidade de fornecimento: Pacote 1,00 KG      </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">174 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, CAPACIDADE 100 L, COR PRETA, LARGURA 85 CM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 50<br>Unidade de fornecimento: Unidade             </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">175 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, CAPACIDADE 200 L, COR PRETA, LARGURA 90 CM, ALTURA 120 CM,CARACTERÍSTICAS ADICIONAIS PEÇA ÚNICA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 50<br>Unidade de fornecimento: Pacote 100,00 UN    </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">176 - TOALHA DE PAPEL</span><br><span class="tex3">TOALHA
+ DE PAPEL, MATERIAL 100% CELULOSE VIRGEM, TIPO FOLHA 2 DOBRAS,          
+COMPRIMENTO 20 CM, LARGURA 21 CM, COR BRANCA, CARACTERÍSTICAS ADICIONAIS
+      INTERFOLHADA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 200<br>Unidade de fornecimento: Pacote 1.000,00 FL  </span><br></td></tr><tr><td width="20" valign="top">&nbsp;</td><td width="650" valign="top"><span class="tex3b">177 - SACO PLÁSTICO LIXO</span><br><span class="tex3">SACO PLÁSTICO LIXO, CAPACIDADE 300 L, COR PRETA, APRESENTAÇÃO PEÇA ÚNICA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: Unidade             </span><br></td></tr></tbody></table>
+	
+		<br>
+		<table width="90%" border="0">
+		<tbody><tr class="td">
+  		<td colspan="2" align="center">
+  			<table border="0">
+  			<tbody><tr class="tex3">
+  				<td align="center"><span class="tex3">Quantidade Total de Itens: 177</span></td>
+  				<td width="1%" nowrap="nowrap">Página 2 de 2</td>
+  			</tr>
+  			</tbody></table>
+  		</td>   		
+  		</tr>
+		<form name="frmPaginacao" method="post" action="download_editais_detalhe.asp?coduasg=160111&amp;modprp=5&amp;numprp=232022"></form>
+		<tr class="tdb">
+		<td>&nbsp;</td>
+  		<td align="center">
+  		<input type="hidden" name="paginaVoltar" value="">
+  		<input type="hidden" name="pagina" value="2">
+  		<input type="hidden" name="tipo" value="M">
+  		
+  		
+  			<input type="button" name="anteriores" id="anteriores" value="Página Anterior" class="texField2" onclick="javascript:PaginarItens('Anterior' , 2, 'M');">
+  		
+			<input type="button" name="ir" id="ir" value="Ir para Página" class="texField2" onclick="JavaScript:IrParaItem(2, 'M')">
+			<input type="text" name="txbIrPara" size="6" maxlength="8" onkeypress="return SomenteNumero(event)" onblur="window.status='';return false;" class="texField">
+		
+		</td>
+		</tr>
+			
+		</tbody></table>
+	
+	
+		    </td>
+		    </tr>		
+        
+            <tr>
+		      <td width="23" valign="top" align="right">
+			     <img src="Compras.gov.br_files/tm_bullet.gif" width="6" height="14">
+		      </td>	
+              <td class="tex3">
+                <span class="tex3b">Informações Adicionais do Download</span><br>
+                  <span class="mensagem">O conteúdo deste edital é de inteira responsabilidade do órgão licitante,
+                   e eventuais problemas devem ser tratados com o mesmo.</span><br><br>
+		       </td>
+		     </tr>
+		 
+         		
+         <tr>
+           <td width="23" valign="top" align="right">&nbsp;</td>
+           <td class="tex3">
+			 
+				 <input type="button" id="btnVoltar" name="btnVoltar" value="Voltar" onclick="Voltar();" class="texField2">&nbsp;
+			 
+			    <input type="button" name="Download" value="Download" onclick="javascript:ValidaCodigo();" class="texField2">
+            
+           </td>
+         </tr>
+       </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+</body></html>
